@@ -1,15 +1,19 @@
 #!/usr/bin/python3
-"""
-Starts a web Flask app
+"""script that starts a Flask web application
+web app must be listening on 0.0.0.0:5000
+/: will display "Hello HBNB!"
+/hbnb: will display "HBHB"
+/c: will display “C ” followed by the value of the text variable
+/python: will display " Python " followed by the value of text variable --
+     has default value of "is cool"
+must use sctrict_slashes=False in route
 """
 
 
 from flask import Flask, render_template
 from models import storage
 from models.state import State
-
-if __name__ == '__main__':
-    app = Flask(__name__)
+app = Flask(__name__)
 
 
 @app.route("/states_list", strict_slashes=False)
@@ -25,4 +29,5 @@ def teardown(cont):
     storage.close()
 
 
-app.run('0.0.0.0', port="5000")
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port="5000")
