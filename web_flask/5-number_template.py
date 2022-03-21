@@ -26,9 +26,8 @@ if __name__ == '__main__':
 
     @app.route("/c/<text>", strict_slashes=False)
     def c(text):
-        """Display “C ” followed by the value of
-        the text variable (replace underscore _
-        symbols with a space)
+        """
+        C then value of text
         """
         return "C " + text.replace("_", " ")
 
